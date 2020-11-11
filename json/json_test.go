@@ -58,8 +58,7 @@ func TestPPrint_ParseAndPrint(t *testing.T) {
 
 			assert.NoError(t, err)
 
-			o := string(output.Bytes())
-			assert.Equal(t, test.wantOutput, o)
+			assert.Equal(t, test.wantOutput, output.String())
 		})
 	}
 }
