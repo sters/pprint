@@ -1,7 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"flag"
+	"fmt"
+	"os"
+
+	"github.com/sters/pprint/pprint"
+)
 
 func main() {
-	fmt.Println("Hello World!")
+	t := flag.String("type", "", "choose type")
+	flag.Parse()
+
+	printer := pprint.ChooseType(*t)
+
+	err := printer.ParseAndPrint(os.Stdin, os.Stdout)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+	}
 }

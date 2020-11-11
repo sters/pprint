@@ -14,7 +14,7 @@ func (*PPrint) GetType() string {
 
 func (*PPrint) ParseAndPrint(r io.Reader, w io.Writer) error {
 	var data interface{}
-	if err := json.NewDecoder(r).Decode(data); err != nil {
+	if err := json.NewDecoder(r).Decode(&data); err != nil {
 		return err
 	}
 
@@ -23,4 +23,6 @@ func (*PPrint) ParseAndPrint(r io.Reader, w io.Writer) error {
 	if err := enc.Encode(data); err != nil {
 		return err
 	}
+
+	return nil
 }
