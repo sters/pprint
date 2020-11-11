@@ -42,6 +42,14 @@ func TestPPrint_ParseAndPrint(t *testing.T) {
 `,
 			false,
 		},
+		"number": {
+			`[693443841357266944]`,
+			`[
+    693443841357266944
+]
+`,
+			false,
+		},
 	}
 
 	for name, test := range tests {
